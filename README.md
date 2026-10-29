@@ -57,8 +57,8 @@ A typical URL-classification workflow consists of:
 
 Clone the repository
 ```bash
- git clone 
- cd
+ git clone https://github.com/harizonelopez/URL-Detection-System.git
+ cd URL-Detection-System
 ```
 
 ```bash
@@ -98,7 +98,7 @@ or:
 
 Open the local address displayed in your terminal
 ```bash
- http://127.0.0.1:5000/
+ http://127.0.0.1:5000
 ```
 
 ### Example of the/an input
