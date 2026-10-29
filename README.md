@@ -6,6 +6,15 @@ A machine-learning project that assesses whether a URL may be associated with ph
 
 > **Disclaimer:** This tool provides risk indicators, not definitive proof that a URL is safe or malicious. It is not a replacement for browser protections, threat-intelligence services, or human review.
 
+## Screenshots
+
+### Homepage
+![Homepage](static/imgs/dashboard.png)
+
+### Detection Results
+![Detection Results](static/imgs/legitimate_url.png)
+![Detection Results](static/imgs/phishing_url_.png)
+
 ## Overview
 
 Phishing URLs may imitate trusted services, use misleading domain names, or contain suspicious paths and keywords. This project uses URL-based feature extraction and a trained machine-learning model to classify submitted URLs as potentially legitimate or potentially phishing.
