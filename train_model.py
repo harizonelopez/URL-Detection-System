@@ -9,7 +9,7 @@ from features import extract_advanced_features
 
 def generate_synthetic_data(filename):
     print("Generating advanced synthetic dataset...")
-    # Legitimate URLs
+    # Legitimate urls
     legit = [
         "https://www.google.com", "https://youtube.com", "https://facebook.com",
         "https://github.com/login", "https://stackoverflow.com/questions", "https://en.wikipedia.org/wiki/Phishing",
@@ -19,9 +19,9 @@ def generate_synthetic_data(filename):
         "https://www.openai.com", "https://www.cloudflare.com", "https://reactjs.org"
     ] * 25
     
-    # Phishing URLs (incorporating advanced techniques)
+    # Phishing urls (incorporating advanced techniques)
     phish = [
-        # Typosquatting
+        # Typo-squatting
         "https://www.googIe.com", "https://faceb00k.com", "http://amzon.com", "http://netflix-update.com",
         "http://paypa1.com", "https://appIe.com", "http://www.linkdln.com",
         
@@ -29,12 +29,12 @@ def generate_synthetic_data(filename):
         "https://fàcebook.com", "http://paypál.com/login", "https://ámázon.com",
         "http://gòogle.com/secure", "https://netflix-updàte.com",
         
-        # IP / Deep Subdomains
+        # IP/Deep Subdomains
         "http://192.168.1.1/login.php", "http://10.10.10.10/verify-account", 
         "http://172.16.0.5/confirm", "http://account.update.secure.login.bankofamerica.com.evil.net", 
         "http://verify.www.paypal.com.account.secure.xyz",
         
-        # High Entropy / Random
+        # High Entropy/Random
         "http://login-apple-support.net/qxj9k2z0vmfmwaq8p", "http://secure-update-account.com/token=e82fjwqz8x9cqm",
         "https://amazon-security-update.com/a93jg8q94j284hq98fhq284hf",
         
@@ -81,7 +81,7 @@ if __name__ == "__main__":
             features_list.append(feats)
             labels.append(row['label'])
         except Exception as e:
-            pass # Skip malformed row
+            pass # Skip the malformed row
             
     X = pd.DataFrame(features_list)
     y = pd.Series(labels)
@@ -89,7 +89,7 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
     print("Training Advanced Random Forest Classifier...")
-    # Train model that can handle probability well
+    # Train model that can handle probability completelly
     model = RandomForestClassifier(n_estimators=150, max_depth=15, random_state=42)
     model.fit(X_train, y_train)
     
