@@ -73,11 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             if (!response.ok) throw new Error(data.error || 'Server error occurred');
 
-            // Render Results
+            // Render the Results
             resultUrl.textContent = data.url;
             overallStatus.textContent = data.status.toUpperCase();
             
-            // Set Color Theme based on Risk
+            // Set Color Theme based on the Risk
             if (data.is_safe) {
                 resultsDashboard.classList.add('is-safe');
             } else if (data.risk_score > 60) {
