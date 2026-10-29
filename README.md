@@ -13,6 +13,7 @@ A machine-learning project that assesses whether a URL may be associated with ph
 ## Detection Results
 
 ![Legitimate URL](static/imgs/legitimate_url.png)
+
 ![Phishing URL](static/imgs/phishing_url_.png)
 
 ## Overview
