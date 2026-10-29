@@ -6,14 +6,14 @@ A machine-learning project that assesses whether a URL may be associated with ph
 
 > **Disclaimer:** This tool provides risk indicators, not definitive proof that a URL is safe or malicious. It is not a replacement for browser protections, threat-intelligence services, or human review.
 
-## Screenshots
+## Homepage
 
-### Homepage
 ![Homepage](static/imgs/dashboard.png)
 
-### Detection Results
-![Detection Results](static/imgs/legitimate_url.png)(static/imgs/phishing_url_.png)
-## ![Detection Results](static/imgs/phishing_url_.png)
+## Detection Results
+
+![Legitimate URL](static/imgs/legitimate_url.png)
+![Phishing URL](static/imgs/phishing_url_.png)
 
 ## Overview
 
