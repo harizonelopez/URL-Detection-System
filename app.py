@@ -6,7 +6,7 @@ from features import extract_advanced_features, get_detection_reasons
 
 app = Flask(__name__)
 
-# Load Model
+# Load the Model
 MODEL_PATH = 'advanced_model.pkl'
 model = None
 
@@ -42,7 +42,7 @@ def predict():
         features = extract_advanced_features(url)
         reasons = get_detection_reasons(features)
         
-        # Prepare for ML prediction (remove string lists)
+        # Prepare for ML prediction -->(remove string lists)
         features_for_model = features.copy()
         if 'matched_suspicious_words' in features_for_model:
             del features_for_model['matched_suspicious_words']
