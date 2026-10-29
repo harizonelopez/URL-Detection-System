@@ -42,7 +42,7 @@ Phishing URLs may imitate trusted services, use misleading domain names, or cont
 
 ```bash
  git clone https://github.com/harizonelopez/URL-Detection-System.git
-cd URL-Detection-System
+ cd URL-Detection-System
 ```
 
 ### 2. Create a virtual environment
@@ -56,7 +56,7 @@ cd URL-Detection-System
 **Windows PowerShell:**
 
 ```powershell
- .env\Scripts\Activate.ps1
+ .env\Scripts\Activate
 ```
 
 **macOS/Linux:**
