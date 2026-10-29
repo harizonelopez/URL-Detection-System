@@ -125,6 +125,7 @@ These metrics should be calculated using a representative, independently held-ou
     │   └── index.html
     ├── static/
     │   ├── script.js
+    |   ├── imgs/
     │   └── style.css
     ├── phishing_urls.csv
     ├── advanced_phishing_urls.csv
