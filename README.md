@@ -38,7 +38,7 @@ A typical URL-classification workflow consists of:
 
 ## Requirements
 
- - Python
+ - Python 3.11 (to be specific)
  - Flask
  - Scikit-learn
  - Pandas
