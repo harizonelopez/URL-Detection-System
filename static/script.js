@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const noThreatsMsg = document.getElementById('no-threats-msg');
     const featuresGrid = document.getElementById('features-grid');
 
-    const CIRCUMFERENCE = 283; // 2 * pi * 45 (radius of circle)
+    const CIRCUMFERENCE = 283; // 2 * pi * 45 -->(radius of circle)
 
     function updateRiskMeter(score) {
         // SVG Circle animation
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Reset & Loading State
         errorBox.classList.add('hidden');
         resultsDashboard.classList.add('hidden');
-        resultsDashboard.className = 'results-dashboard hidden'; // Reset classes
+        resultsDashboard.className = 'results-dashboard hidden'; // Reset the classes
         riskProgress.style.strokeDashoffset = CIRCUMFERENCE;
         riskScoreTxt.innerText = "0";
         reasonsList.innerHTML = '';
