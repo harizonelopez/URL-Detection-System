@@ -11,13 +11,9 @@ A machine-learning project for assessing whether a URL may be associated with ph
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Data and privacy](#data-and-privacy)
 - [Evaluation](#evaluation)
-- [Limitations and safe use](#limitations-and-safe-use)
 - [Project structure](#project-structure)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
+- [Limitations](#limitations)
 
 ## Overview
 
