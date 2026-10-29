@@ -4,11 +4,13 @@ import tldextract
 import Levenshtein
 from urllib.parse import urlparse
 
-# List of common popular domains to check against for typosquatting
+# A list of common popular domains to check against for typosquatting
 TOP_DOMAINS = [
     'google', 'facebook', 'apple', 'microsoft', 'amazon', 
     'paypal', 'netflix', 'linkedin', 'twitter', 'instagram',
-    'bankofamerica', 'chase', 'wellsfargo', 'github'
+    'bankofamerica', 'chase', 'wellsfargo', 'github', 'kernel',
+    'stackoverflow', 'grokipedia', 'cloudflare', 'reactjs', 'wikipedia',
+    'medium', 'ycombinator', 'reddit', 'youtube'
 ]
 
 # Common URL shorteners
@@ -29,7 +31,7 @@ def check_typosquatting(domain_name):
     Handles repeated characters (e.g., faceboooook -> facebook) and Levenshtein distance.
     Returns (1, matched_brand) if typosquatting detected, else (0, None)
     """
-    # Remove consecutive duplicate characters (e.g., faceboooook -> facebok, google -> gogle)
+    # Remove consecutive duplicate characters (i.e., collapse repeated characters), faceboooook -> facebok, ammazon -> amazon
     collapsed_domain = re.sub(r'(.)\1+', r'\1', domain_name.lower())
     
     min_distance = float('inf')
@@ -40,10 +42,10 @@ def check_typosquatting(domain_name):
         if domain_name.lower() == top_brand:
             return 0, None
             
-        # Check against raw domain (e.g., facebok vs facebook -> dist 1)
+        # Check against raw domain (e.g., facebok vs facebook --> dist 1)
         dist_raw = Levenshtein.distance(domain_name.lower(), top_brand)
         
-        # Check against collapsed domain (e.g., faceboooook -> facebok vs facebook -> facebok -> dist 0)
+        # Check against collapsed domain (e.g., faceboooook -> facebok vs facebook --> facebok --> dist 0)
         collapsed_brand = re.sub(r'(.)\1+', r'\1', top_brand)
         dist_collapsed = Levenshtein.distance(collapsed_domain, collapsed_brand)
         
@@ -74,7 +76,7 @@ def extract_advanced_features(url):
     features['has_underscore'] = 1 if '_' in url else 0
     features['num_dots'] = url.count('.')
     
-    # Parse URL
+    # Parse the URL
     try:
         if not url.startswith('http'):
             url = 'http://' + url
@@ -89,7 +91,7 @@ def extract_advanced_features(url):
     # IP Address as domain
     features['has_ip'] = 1 if re.search(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', domain) else 0
     
-    # Suspicious Subdomains (High number of subdomains is suspicious)
+    # Suspicious Subdomains --> (High number of subdomains is suspicious)
     subdomains = ext.subdomain.split('.') if ext.subdomain else []
     features['num_subdomains'] = len(subdomains)
     features['is_suspicious_subdomain'] = 1 if len(subdomains) >= 3 else 0
@@ -100,10 +102,10 @@ def extract_advanced_features(url):
     # Typosquatting
     is_typo, matched_brand = check_typosquatting(ext.domain)
     features['is_typosquatting'] = is_typo
-    features['typo_brand'] = matched_brand # Retained for UI
+    features['typo_brand'] = matched_brand # Retained for the UI
 
     
-    # Entropy (High entropy often indicates randomness used in phishing links)
+    # Entropy --> (High entropy often indicates randomness used in phishing links)
     features['entropy'] = get_shannon_entropy(url)
     features['high_entropy'] = 1 if features['entropy'] > 4.5 else 0
     
@@ -114,9 +116,9 @@ def extract_advanced_features(url):
     ]
     matched_words = [word for word in suspicious_keywords if word in url.lower()]
     features['suspicious_words_count'] = len(matched_words)
-    features['matched_suspicious_words'] = matched_words # Retained for UI, dropped before model
+    features['matched_suspicious_words'] = matched_words # Retained for UI, dropped before the model training
     
-    # Non-ASCII (Homograph)
+    # Non-ASCII -->(Homograph)
     features['has_non_ascii'] = 1 if any(ord(char) > 127 for char in url) else 0
     
     # Protocol validation
